@@ -1,0 +1,14 @@
+@import "../../composer/vendor/twbs/bootstrap/scss/bootstrap";
+
+body {
+    background-color: #212529;
+    color: white;
+}
+
+.navbar {
+background-color: $blue-400;
+}
+
+.btn {
+    background-color: $blue-400;
+}
