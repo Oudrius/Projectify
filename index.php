@@ -7,7 +7,7 @@ require 'templates/layout.php';
 if ($pdo) {
 
   $sql = '
-    SELECT projects.title, projects.description, 
+    SELECT projects.id, projects.title, projects.description, 
     projects.create_date, projects.status, projects.user_id, users.username
     FROM projects
     INNER JOIN users ON projects.user_id = users.id
@@ -19,7 +19,9 @@ if ($pdo) {
 }
 
 ?>
+
 <h2 class="text-center mt-5">All Projects</h2>
+
 <?php foreach ($projects as $project) : ?>
 <div class="container mt-5 mb-3">
   <div>
@@ -29,7 +31,11 @@ if ($pdo) {
     </div>
     <div class="d-flex flex-row dynamicRow">
       <div class="p-2 w-25 d-flex justify-content-center align-items-center titleRow">
-        <?= htmlspecialchars($project['title']); ?> 
+        <?php if ($_SESSION['user'] === $project['username']): ?>
+          <a href="edit.php?id=<?=$project['id']?>"><?=htmlspecialchars($project['title']);?></a>
+        <?php else: ?>
+            <?=htmlspecialchars($project['title']);?>
+        <?php endif ?>
       </div>
       <div class="p-2 w-75 d-flex justify-content-center">
         <?= htmlspecialchars($project['description']); ?>
