@@ -1,7 +1,5 @@
 <?php
 
-define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/task_manager/');
-
 // Set up database credentials
 return [
     'db' => [

@@ -7,13 +7,11 @@ $pdo = require '../init.php';
 $errors = ['username' => '', 'password' => '', 're-password' => ''];
 $inputs = ['username' => '', 'password' => ''];
 
-var_dump($pdo);
-
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
     // Sanitize and validate username input
-    $username = $inputs['username'] = trim(filter_input(INPUT_POST, 'username')); // Sanitize username input
+    $username = $inputs['username'] = htmlspecialchars(trim($_POST['username']));
 
     if (mb_strlen($username) >=4 && mb_strlen($username) <= 16) { // Validate length
 
@@ -33,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
         $errors['username'] = 'Username must be 4-16 characters long.';
     }
 
-    // Sanitize and validate password input
-    $password = $inputs['password'] = filter_input(INPUT_POST, 'password'); // Sanitize password input
+    // Validate password input
+    $password = $inputs['password'] = $_POST['password'];
 
     // Validate length
     if (strlen($password) <8) {
@@ -62,6 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
             ':password' => $hash
         ]);
 
+        $_SESSION['user'] = $username;
+
         header('Location: ../'); // Redirect to index page
         die; // Terminate this script
     }
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
             <div class="mb-3 mt-3">
               <label for="username" class="form-label">Username</label>
 <?php if (!$errors['username']): ?>
-              <input type="text" class="form-control" id="username" name="username">
+              <input type="text" class="form-control" id="username" name="username" autofocus>
 <?php else: ?>
               <input type="text" class="form-control is-invalid" id="username" name="username" value="<?= htmlspecialchars($inputs['username']) ?>">
               <div class="invalid-feedback"><?= htmlspecialchars($errors['username']) ?></div>

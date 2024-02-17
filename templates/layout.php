@@ -1,3 +1,10 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +24,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
+<?php if (isset($_SESSION['user'])): ?>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">My Projects</a>
+              <a class="nav-link active" aria-current="page" href="/task_manager/templates/my_projects.php">My Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">New Project</a>
+              <a class="nav-link" href="/task_manager/templates/new_project.php">New Project</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Log in</a>
+              <a class="nav-link" href="/task_manager/templates/logout.php">Log out</a>
+            </li>
+<?php else: ?>
+            <li class="nav-item">
+              <a class="nav-link" href="/task_manager/templates/login.php">Log in</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/task_manager/templates/register.php">Register</a>
             </li>
+<?php endif; ?>
           </ul>
         </div>
       </div>
@@ -36,8 +49,3 @@
   </header>
 </body>
 </html>
-
-<?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-?>

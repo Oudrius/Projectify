@@ -11868,4 +11868,33 @@ body {
   background-color: #3d8bfd;
 }
 
+.form-text {
+  color: #6ea8fe;
+}
+
+@media (max-width: 576px) {
+  #outerContainer, .col-sm, .row {
+    border: none !important;
+  }
+  #description, #title {
+    display: none;
+  }
+}
+#outerContainer {
+  border: 1px solid rgba(177, 177, 177, 0.5);
+  border-bottom: none;
+}
+
+.col-sm {
+  border-right: 1px solid rgba(177, 177, 177, 0.5);
+}
+
+.row {
+  border-bottom: 1px solid rgba(177, 177, 177, 0.5);
+}
+
+.titleRow {
+  border-right: 1px solid rgba(177, 177, 177, 0.5);
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -1,5 +1,7 @@
 @import "../../composer/vendor/twbs/bootstrap/scss/bootstrap";
 
+$border: 1px solid rgba(177, 177, 177, 0.5);
+
 body {
     background-color: #212529;
     color: white;
@@ -11,4 +13,36 @@ background-color: $blue-400;
 
 .btn {
     background-color: $blue-400;
+}
+
+.form-text {
+    color: $blue-300;
+}
+
+@media (max-width: 576px) {
+
+    #outerContainer, .col-sm, .row {
+        border: none !important;
+    }
+
+    #description, #title {
+        display: none;
+    }
+}
+
+#outerContainer {
+    border: $border;
+    border-bottom: none;
+}
+
+.col-sm {
+    border-right: $border;
+}
+
+.row {
+    border-bottom: $border;
+}
+
+.titleRow {
+    border-right: $border;
 }
