@@ -32,7 +32,7 @@ if ($pdo) {
     <div class="d-flex flex-row dynamicRow">
       <div class="p-2 w-25 d-flex justify-content-center align-items-center titleRow">
         <?php if ($_SESSION['user'] === $project['username']): ?>
-          <a href="edit.php?id=<?=$project['id']?>"><?=htmlspecialchars($project['title']);?></a>
+          <a href="templates/edit.php?id=<?=$project['id']?>"><?=htmlspecialchars($project['title']);?></a>
         <?php else: ?>
             <?=htmlspecialchars($project['title']);?>
         <?php endif ?>
