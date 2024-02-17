@@ -19,28 +19,13 @@ background-color: $blue-400;
     color: $blue-300;
 }
 
-@media (max-width: 576px) {
-
-    #outerContainer, .col-sm, .row {
-        border: none !important;
-    }
-
-    #description, #title {
-        display: none;
-    }
-}
-
-#outerContainer {
+.staticRow {
     border: $border;
-    border-bottom: none;
 }
 
-.col-sm {
-    border-right: $border;
-}
-
-.row {
-    border-bottom: $border;
+.dynamicRow {
+    border: $border;
+    border-top: none;
 }
 
 .titleRow {

@@ -19,35 +19,27 @@ if ($pdo) {
 }
 
 ?>
-
+<h2 class="text-center mt-5">All Projects</h2>
 <?php foreach ($projects as $project) : ?>
-  <div class="container mt-3 mb-5 mt-md-5" id="outerContainer">
-    <div class="row text-center">
-      <div class="col-sm col-md-3 pb-3 pb-md-1" id="title">
-        Title
-      </div>
-      <div class="col" id="description">
-        Description
-      </div>
+<div class="container mt-5 mb-3">
+  <div>
+    <div class="d-flex flex-row staticRow">
+      <div class="p-2 w-25 d-flex justify-content-center titleRow">Title</div>
+      <div class="p-2 w-75 d-flex justify-content-center">Description</div>
     </div>
-    <div class="row align-items-center">
-      <div class="col-sm col-md-3 title pb-3 pb-md-1">
-        <?= htmlspecialchars($project['title']); ?>
+    <div class="d-flex flex-row dynamicRow">
+      <div class="p-2 w-25 d-flex justify-content-center align-items-center titleRow">
+        <?= htmlspecialchars($project['title']); ?> 
       </div>
-      <div class="col">
+      <div class="p-2 w-75 d-flex justify-content-center">
         <?= htmlspecialchars($project['description']); ?>
       </div>
     </div>
-    <div class="row pt-3 pt-md-1 align-items-center">
-      <div class="col">
-        <?= htmlspecialchars($project['status']); ?>
-      </div>
-      <div class="col">
-        <?= htmlspecialchars($project['create_date']); ?>
-      </div>
-      <div class="col">
-        <?= htmlspecialchars($project['username']); ?>
-      </div>
+    <div class="d-flex justify-content-around flex-row dynamicRow">
+      <div class="p-2 "><?= htmlspecialchars($project['status']); ?> </div>
+      <div class="p-2"><?= htmlspecialchars($project['create_date']); ?></div>
+      <div class="p-2"><?= htmlspecialchars($project['username']); ?></div>
     </div>
   </div>
+</div>
 <?php endforeach; ?>
